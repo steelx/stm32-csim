@@ -1,0 +1,42 @@
+/* Tailwind supplies the layout/utilities; these rules style lesson prose and print. */
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6f3; color: #172e2a; }
+article p, article ul, article ol { margin: 1rem 0; line-height: 1.8; }
+article ul { list-style: disc; padding-left: 1.4rem; }
+article ol { list-style: decimal; padding-left: 1.4rem; }
+article li + li { margin-top: .45rem; }
+article h2 { font-size: 1.85rem; font-weight: 700; letter-spacing: -.035em; margin: .6rem 0 1.2rem; }
+article h3 { font-size: 1.2rem; font-weight: 700; margin: 1.7rem 0 .5rem; }
+article a, .source-link { color: #12675c; text-decoration: underline; text-underline-offset: 3px; }
+article section { scroll-margin-top: 2rem; }
+pre { overflow-x: auto; padding: 1.2rem; background: #142e2a; color: #e2f2e9; border-radius: .75rem; font: .88rem/1.65 Consolas, monospace; white-space: pre; }
+code { font-family: Consolas, monospace; }
+table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+th, td { padding: .9rem; border-bottom: 1px solid #dbe3de; text-align: left; vertical-align: top; }
+th { background: #edf2ec; font-weight: 650; }
+.table-wrap { overflow-x: auto; margin: 1.2rem 0; }
+.panel { padding: 1.4rem; border: 1px solid #d8e2da; border-radius: 1rem; background: white; margin: 1.2rem 0; }
+.callout { padding: 1rem 1.2rem; border-left: 3px solid #bd7625; background: #fff5df; border-radius: 0 .6rem .6rem 0; margin: 1.2rem 0; }
+.eyebrow { font: 600 .72rem/1.5 Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; color: #52675d; }
+.check { display: flex; gap: .7rem; align-items: flex-start; padding: 1rem; background: #eaf2e8; border-radius: .7rem; margin-top: 1.5rem; cursor: pointer; }
+input[type=checkbox] { width: 1.1rem; height: 1.1rem; margin-top: .25rem; accent-color: #246755; flex: 0 0 auto; }
+input[type=number], textarea { border: 1px solid #95aca0; background: white; border-radius: .4rem; padding: .6rem; color: #172e2a; max-width: 100%; }
+textarea { display: block; width: 100%; min-height: 8rem; margin-top: .6rem; }
+details { border-top: 1px solid #dbe3de; padding: 1rem 0; }
+summary { font-weight: 650; cursor: pointer; }
+button, a, input, textarea, summary { outline-offset: 5px; }
+button { cursor: pointer; }
+svg { max-width: 100%; height: auto; }
+progress { width: 100%; height: .5rem; accent-color: #a0c39d; }
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  aside, .no-print, nav { display: none !important; }
+  body, main, article { background: white !important; color: black !important; margin: 0 !important; max-width: none !important; padding: 0 !important; }
+  section { break-before: page; border: 0 !important; }
+  section:first-of-type { break-before: auto; }
+  pre { white-space: pre-wrap; color: black; background: #eee; }
+  details { display: block; }
+  a { color: black !important; }
+  .panel, tr, svg { break-inside: avoid; }
+}
