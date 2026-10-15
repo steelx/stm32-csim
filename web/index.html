@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STM32-Csim</title></head><body>
+<header><div class="brand"><span class="brand-icon">▦</span><div><h1>STM32<span>-Csim</span> <small>0.1</small></h1><p>The bare-metal circuit lab</p></div></div>
+<div class="controls"><span id="status" class="status">CONNECTING</span><button data-command="run" class="primary">▶ Run</button><button data-command="pause">Ⅱ Pause</button><button data-command="step" title="Execute one ARM instruction">↦ Step</button><button data-command="reset">↺ Reset</button></div></header>
+<main>
+<aside><div class="section-title">COMPONENTS <span>04</span></div><p class="muted">Your first circuit</p>
+<div class="component selected"><span>▦</span><div>STM32F446RE<small>Cortex-M4 · 512 KB Flash</small></div></div>
+<div class="component"><span class="green">◉</span><div>LED<small>D1 · green</small></div></div>
+<div class="component"><span>▭</span><div>Resistor<small>R1 · 330 Ω</small></div></div>
+<div class="component"><span>⏚</span><div>Ground<small>Common reference</small></div></div>
+<div class="lesson"><span>EXPERIMENT 01</span><h3>Make a pin speak.</h3><p>Enable the clock. Select output mode. Write a bit. Watch your circuit respond.</p><a href="#activity">Follow the registers ↓</a></div>
+<div class="scope-note">Fixed circuit · digital model<br>Connections are defined in C.</div></aside>
+<section class="canvas-panel"><div class="panel-bar"><span>CIRCUIT CANVAS</span><span class="subtle">PA5 → R1 → D1 → GND</span><span class="tag">DIGITAL</span></div>
+<svg id="circuit" viewBox="0 0 900 365" role="img" aria-label="STM32 PA5 connected through a 330 ohm resistor to a green LED and ground">
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.8" fill="#243347"/></pattern><filter id="glow"><feGaussianBlur stdDeviation="9"/></filter></defs>
+<rect width="900" height="365" fill="url(#grid)"/>
+<g transform="translate(105 54)"><rect x="0" y="0" width="286" height="258" rx="14" fill="#143e37" stroke="#347f6b" stroke-width="2"/>
+<circle cx="18" cy="18" r="6" fill="#0d1924" stroke="#7ab8a4"/><circle cx="268" cy="240" r="6" fill="#0d1924" stroke="#7ab8a4"/>
+<rect x="100" y="-10" width="62" height="30" rx="4" fill="#b9c7cf"/><rect x="111" y="-7" width="40" height="8" fill="#526879"/>
+<text x="24" y="55" fill="#b0e4d2" font-size="12" letter-spacing="2">STM32-CSIM</text><text x="24" y="80" fill="#effff8" font-size="19" font-weight="600">NUCLEO · F446RE</text>
+<rect x="89" y="111" width="90" height="87" rx="4" fill="#10201f" stroke="#64958c"/><text x="134" y="148" text-anchor="middle" fill="#b8ceca" font-size="11">STM32</text><text x="134" y="165" text-anchor="middle" fill="#b8ceca" font-size="11">F446RE</text>
+<path d="M29 110V219M255 102V219" stroke="#0b2724" stroke-width="15" stroke-dasharray="5 9"/>
+<text x="24" y="239" fill="#8fc0b2" font-size="10">ARM CORTEX-M4</text><text x="227" y="115" fill="#dbfff0" font-size="13">PA5</text><circle cx="286" cy="133" r="6" fill="#67e8b1"/>
+</g>
+<path id="signal-wire" d="M391 187H480 M550 187H641" fill="none" stroke="#597282" stroke-width="3"/>
+<rect x="480" y="174" width="70" height="26" rx="3" fill="#cab58b" stroke="#ecdbb5" stroke-width="2"/>
+<path d="M497 175V199M508 175V199" stroke="#c87935" stroke-width="6"/><path d="M520 175V199" stroke="#73502c" stroke-width="6"/><path d="M539 175V199" stroke="#d7b84b" stroke-width="4"/>
+<text x="515" y="148" text-anchor="middle" fill="#d3dce9" font-size="14">R1 <tspan fill="#8393a8">330 Ω</tspan></text>
+<g id="led"><circle id="led-glow" cx="665" cy="187" r="35" fill="#55f4a9" opacity="0" filter="url(#glow)"/><circle id="led-body" cx="665" cy="187" r="23" fill="#1a4939" stroke="#639c80" stroke-width="2"/><path d="M656 177L674 187L656 197Z M675 176V198" stroke="#a9d9be" stroke-width="2" fill="none"/></g>
+<path d="M689 187H742V249 M725 249H759 M730 256H754 M738 263H747" stroke="#597282" stroke-width="3" fill="none"/>
+<text x="665" y="140" text-anchor="middle" fill="#d3dce9" font-size="14">D1 <tspan fill="#8393a8">GREEN</tspan></text>
+<text id="led-label" x="665" y="238" text-anchor="middle" fill="#91a1b8" font-size="12">OFF</text><text x="742" y="290" text-anchor="middle" fill="#8393a8" font-size="12">GND</text>
+<rect x="420" y="274" width="161" height="33" rx="16" fill="#172331" stroke="#304153"/><text id="pin-label" x="500" y="295" text-anchor="middle" fill="#c0cee0" font-size="12">PA5 · HIGH IMPEDANCE</text>
+</svg><div class="canvas-footer"><span><i id="led-dot"></i> <span id="circuit-status">Waiting for firmware</span></span><span>3 wires · 4 components · no analog solver</span></div></section>
+<section class="source-panel"><div class="panel-bar"><span>FIRMWARE</span><span class="file-tab">main.c</span><span class="tag">ARM / THUMB</span></div><textarea id="source" readonly spellcheck="false" aria-label="Compiled main.c source"></textarea><div class="source-footer">Edit firmware/main.c on disk, rebuild, then relaunch. This view is read-only.</div></section>
+<section id="activity" class="activity-panel"><div class="panel-bar"><span>REGISTER ACTIVITY</span><span id="access-count" class="subtle">0 accesses</span><label><input id="reads" type="checkbox" checked> Reads</label></div>
+<div class="registers"><div><span>RCC_AHB1ENR</span><code id="rcc">0x00000000</code><small>0x40023830</small></div><div><span>GPIOA_MODER</span><code id="moder">0xA8000000</code><small>0x40020000</small></div><div><span>GPIOA_ODR</span><code id="odr">0x00000000</code><small>0x40020014</small></div></div>
+<div id="trace" aria-live="polite"><p class="empty">Press Run to follow the firmware's register accesses.</p></div><div class="source-footer">Latest 64 accesses · newest first · values and explanations come from C</div></section>
+</main><footer><span><b>HOST</b> Native desktop <span class="divider">/</span> <b>CPU</b> Cortex-M4 via Unicorn <span class="divider">/</span> <b>MCU</b> STM32F446RE model</span><span id="execution">PC — · 0 slices</span></footer>
+<div id="error" role="alert" hidden></div>
