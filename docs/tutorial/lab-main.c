@@ -14,12 +14,14 @@
 #error "LAB_MODE must be 0, 1 or 2"
 #endif
 
+#if LAB_MODE == 0
 static void delay(void)
 {
     for (volatile unsigned int i = 0; i < 500000U; ++i) {
         __NOP();
     }
 }
+#endif
 
 int main(void)
 {
