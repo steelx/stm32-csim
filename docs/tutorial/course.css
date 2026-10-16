@@ -1,13 +1,13 @@
 /* Tailwind supplies the layout/utilities; these rules style lesson prose and print. */
 :root { color-scheme: light; }
 html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
-body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6f3; color: #172e2a; }
+body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f7fb; color: #213547; }
 article p, article ul, article ol { margin: 1rem 0; line-height: 1.8; }
 article ul { list-style: disc; padding-left: 1.4rem; }
 article ol { list-style: decimal; padding-left: 1.4rem; }
 article li + li { margin-top: .45rem; }
 article h2 { font-size: 1.85rem; font-weight: 750; letter-spacing: -.035em; margin: .6rem 0 1.2rem; color: #1e40af; padding: .8rem 1rem; border-left: 4px solid #38bdf8; border-radius: 0 .8rem .8rem 0; background: linear-gradient(110deg, #e0f2fe, #eef2ff 65%, transparent); }
-article h3 { font-size: 1.2rem; font-weight: 700; margin: 1.7rem 0 .65rem; color: #0e7490; }
+article h3 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 .75rem; color: #0e7490; }
 body[data-guide] h1 { color: #164e63; }
 body[data-guide] .eyebrow { color: #4f46e5; }
 article a, .source-link { color: #12675c; text-decoration: underline; text-underline-offset: 3px; }
@@ -40,6 +40,53 @@ article a.diagram-anchor { font-family: Consolas, monospace; font-size: .75rem; 
 .wiring-figure figcaption { padding: 1rem 1.2rem; background: #f0f9ff; color: #334155; border-top: 1px solid #dbeafe; font-size: .92rem; line-height: 1.65; }
 .wiring-figure .diagram-netlist { padding: 1rem 1.2rem; color: #164e63; }
 .diagram-primer { border-color: #a5d5e6; }
+/* Shared teaching rhythm: intuition, calculation, wiring, then diagnosis. */
+article > section > p, .panel > p, details > p { max-width: 82ch; }
+article h2, article h3, .diagram-heading { text-wrap: balance; }
+.mental-model, .bench-guardrail, .node-flow, .bench-trap { margin: 1.2rem 0; padding: 1rem 1.15rem; border: 1px solid; border-radius: .8rem; line-height: 1.65; }
+.callout-label { display: block; margin-bottom: .45rem; font: 750 .75rem/1.5 'Segoe UI', system-ui, sans-serif; letter-spacing: .075em; text-transform: uppercase; }
+.mental-model { border-color: #c7d2fe; border-left: 4px solid #6366f1; background: linear-gradient(110deg, #eef2ff, #f0f9ff); color: #26375e; }
+.mental-model .callout-label { color: #4338ca; }
+.mental-model p { max-width: 82ch; font-size: 1.04rem; }
+.bench-guardrail { border-color: #e7d2a3; border-left: 4px solid #b7791f; background: #fffbeb; color: #5b451c; font-size: .94rem; }
+.bench-guardrail .callout-label { color: #805311; }
+.mental-model p, .bench-guardrail p, .node-flow p, .bench-trap p { margin: .45rem 0 0; line-height: 1.65; }
+.bench-guardrail ul, .bench-guardrail ol { margin: .5rem 0 0; line-height: 1.6; }
+.bench-guardrail li + li { margin-top: .3rem; }
+.formula { margin: 1.3rem 0; padding: 1.15rem 1.3rem; border: 1px solid #cdd8ef; border-radius: .85rem; background: #f1f5ff; color: #233659; overflow-wrap: anywhere; }
+.equation-step + .equation-step { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #d5def1; }
+.equation { display: block; margin: 0 0 .5rem; color: #1e3a8a; font: 600 1.05rem/1.8 Consolas, 'Cascadia Code', monospace; }
+.equation-note { margin: .45rem 0; font: .93rem/1.65 'Segoe UI', system-ui, sans-serif; color: #475569; }
+.symbol-key { margin: .5rem 0 0; font: .91rem/1.65 'Segoe UI', system-ui, sans-serif; color: #475569; }
+dl.symbol-key { display: grid; grid-template-columns: minmax(4rem, max-content) minmax(0, 1fr); gap: .25rem 1rem; }
+.symbol-key dt { color: #334b75; font-family: Consolas, monospace; font-weight: 700; }
+.symbol-key dd { margin: 0; }
+.symbol-key p { margin: .35rem 0 0; line-height: 1.65; }
+.node-flow { border-color: #b9dce5; background: #effbfc; color: #164e63; font-size: .92rem; }
+.node-flow .callout-label { color: #0e7490; }
+.node-flow p { overflow-wrap: anywhere; }
+.flow-node { display: inline-block; max-width: 100%; padding: .15rem .45rem; margin: .15rem 0; border: 1px solid #bfdae1; border-radius: .35rem; background: white; vertical-align: middle; }
+.flow-arrow { display: inline-block; padding: 0 .25rem; color: #0e7490; font-weight: 700; }
+.wiring-figure > .node-flow { margin: .9rem 1rem; }
+.bench-trap { border-color: #d8dff0; background: #f5f6fb; color: #334155; font-size: .94rem; }
+.bench-trap .callout-label { color: #4f46a0; }
+details { margin: 1.2rem 0; padding: 1rem 1.15rem; border: 1px solid #cddae4; border-radius: .8rem; background: #fff; }
+summary { color: #164e63; line-height: 1.6; }
+summary::marker { color: #4f46e5; }
+details[open] > summary { margin-bottom: .8rem; }
+details > .bench-trap:last-child { margin-bottom: 0; }
+:focus-visible { outline: 3px solid #0284c7; }
+.learning-sequence { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: .9rem; list-style: none; padding: 0; margin: 1.5rem 0; }
+article ol.learning-sequence { padding: 0; list-style: none; }
+.learning-sequence li, .learning-sequence li + li { margin: 0; padding: 1rem; background: #fff; border: 1px solid #cbddeb; border-radius: .8rem; line-height: 1.6; }
+.learning-sequence b { display: block; color: #1e40af; margin-bottom: .35rem; }
+.learning-sequence span { color: #475569; font-size: .94rem; }
+@media(max-width: 600px) {
+  article h2 { font-size: 1.55rem; padding: .7rem .8rem; }
+  .mental-model, .bench-guardrail, .node-flow, .bench-trap, .formula { padding: .9rem; }
+  .equation { font-size: .98rem; }
+  dl.symbol-key { gap: .25rem .7rem; }
+}
 @media(min-width: 1024px) { body[data-guide] main { max-width: 1536px; } }
 progress { width: 100%; height: .5rem; accent-color: #a0c39d; }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -57,4 +104,8 @@ progress { width: 100%; height: .5rem; accent-color: #a0c39d; }
   .wiring-figure { break-inside: avoid; }
   .diagram-anchor { display: none; }
   article h2, article h3, .diagram-heading h4 { color: #17324d !important; }
+  .mental-model, .bench-guardrail, .node-flow, .bench-trap, .equation-step { break-inside: avoid; }
+  .mental-model, .bench-guardrail, .node-flow, .bench-trap, .formula { box-shadow: none; color: #172e2a; border-color: #9aaabb; }
+  .equation, .callout-label, summary { color: #17324d; }
+  .formula, details { overflow: visible; }
 }

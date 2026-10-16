@@ -1,4 +1,4 @@
-/* Module 2 additions; shared Module 1 styles remain unchanged. */
+/* Module 2 experiments extend the shared lesson and diagram styles. */
 body[data-guide="module-02"] .interactive { background:#fff; border:1px solid #a5d3e3; border-radius:1rem; padding:1.25rem; margin:1.5rem 0; }
 body[data-guide="module-02"] .controls { display:flex; flex-wrap:wrap; gap:1rem; align-items:end; margin:1rem 0; }
 body[data-guide="module-02"] .controls label { display:grid; gap:.35rem; font-size:.9rem; color:#164e63; }
@@ -11,7 +11,11 @@ body[data-guide="module-02"] .plot-scroll { overflow-x:auto; }
 body[data-guide="module-02"] .plot { display:block; min-width:620px; width:100%; background:#fff; }
 body[data-guide="module-02"] .lesson { margin-top:4rem; padding-top:1.5rem; border-top:1px solid #cbd5e1; }
 body[data-guide="module-02"] .reading { font-size:.9rem; color:#475569; }
-body[data-guide="module-02"] .formula { font:1rem/1.8 Consolas,monospace; background:#eef2ff; padding:1rem; border-radius:.7rem; overflow-wrap:anywhere; }
+body[data-guide="module-02"] .formula { font:1rem/1.8 'Segoe UI',system-ui,sans-serif; }
+body[data-guide="module-02"] .interactive > h3:first-child { margin-top:0; }
+body[data-guide="module-02"] .interactive .formula { background:#f6f8ff; }
+body[data-guide="module-02"] .result { overflow-wrap:anywhere; }
+body[data-guide="module-02"] .reading { padding-top:.6rem; border-top:1px solid #dde5ef; }
 body[data-guide="module-02"] td code { overflow-wrap:anywhere; }
 body[data-guide="module-02"] .badge { display:inline-block; padding:.2rem .65rem; background:#e0f2fe; color:#075985; border-radius:2rem; font-size:.75rem; font-weight:700; }
 body[data-guide="module-02"] .live-cell { background:#cffafe; font-weight:700; }
