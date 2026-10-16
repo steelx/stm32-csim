@@ -1,0 +1,20 @@
+/* Module 2 additions; shared Module 1 styles remain unchanged. */
+body[data-guide="module-02"] .interactive { background:#fff; border:1px solid #a5d3e3; border-radius:1rem; padding:1.25rem; margin:1.5rem 0; }
+body[data-guide="module-02"] .controls { display:flex; flex-wrap:wrap; gap:1rem; align-items:end; margin:1rem 0; }
+body[data-guide="module-02"] .controls label { display:grid; gap:.35rem; font-size:.9rem; color:#164e63; }
+body[data-guide="module-02"] .controls input[type=number] { width:8rem; }
+body[data-guide="module-02"] select { padding:.55rem; border:1px solid #94a3b8; border-radius:.4rem; background:white; max-width:100%; }
+body[data-guide="module-02"] button { padding:.55rem .8rem; border-radius:.5rem; background:#155e75; color:white; }
+body[data-guide="module-02"] button:hover { background:#0e7490; }
+body[data-guide="module-02"] .result { background:#ecfeff; color:#164e63; padding:.8rem; border-left:3px solid #0891b2; font: .95rem/1.65 Consolas,monospace; margin:1rem 0; }
+body[data-guide="module-02"] .plot-scroll { overflow-x:auto; }
+body[data-guide="module-02"] .plot { display:block; min-width:620px; width:100%; background:#fff; }
+body[data-guide="module-02"] .lesson { margin-top:4rem; padding-top:1.5rem; border-top:1px solid #cbd5e1; }
+body[data-guide="module-02"] .reading { font-size:.9rem; color:#475569; }
+body[data-guide="module-02"] .formula { font:1rem/1.8 Consolas,monospace; background:#eef2ff; padding:1rem; border-radius:.7rem; overflow-wrap:anywhere; }
+body[data-guide="module-02"] td code { overflow-wrap:anywhere; }
+body[data-guide="module-02"] .badge { display:inline-block; padding:.2rem .65rem; background:#e0f2fe; color:#075985; border-radius:2rem; font-size:.75rem; font-weight:700; }
+body[data-guide="module-02"] .live-cell { background:#cffafe; font-weight:700; }
+body[data-guide="module-02"] svg[id$="-breadboard"] { min-width:1050px; }
+@media print { body[data-guide="module-02"] .controls { display:none; } body[data-guide="module-02"] .plot { min-width:0; } body[data-guide="module-02"] .plot-scroll { overflow:visible; } }
+@media print { body[data-guide="module-02"] svg[id$="-breadboard"] { min-width:0; } }
